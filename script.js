@@ -30,6 +30,7 @@ function addTrade(game, trading, _for,cont) {
 
 const tradesRef = ref(db, 'trades/');
 onValue(tradesRef, (trades) => {
+  $("#trades").html("Refreshing...")
   trades.forEach((trade)=>{
 const data = trade.val();
   $("#trades").append("<div class='z-depth-3 yellow-text grey darken-1 animate__animated animate__bounce'>Trading <span class='waves-effect red-text'>"+data._for+"</span> for <span class='waves-effect white-text'>"+data.trading+ "</span> in <span class='waves-effect waves-purple pink-text'>"+data.game+"</span><br><br><code class='orange-text' style='user-select:text'>Contact: "+data.contact+"</code></div>")
